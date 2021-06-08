@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss">
 .pagination {
+  min-height: 10rem;
   .page-link {
     cursor: pointer;
   }

@@ -4,6 +4,7 @@
       <Header />
       <ListOfPackages />
       <Pagination />
+      <Footer />
     </div>
   </div>
 </template>
@@ -12,9 +13,10 @@
 import Header from "@/components/Header";
 import ListOfPackages from "@/components/ListOfPackages";
 import Pagination from "@/components/Pagination";
+import Footer from "@/components/Footer";
 export default {
   name: "App",
-  components: { Header, ListOfPackages, Pagination },
+  components: { Footer, Header, ListOfPackages, Pagination },
 };
 </script>
 

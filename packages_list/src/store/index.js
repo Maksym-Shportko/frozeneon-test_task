@@ -6,10 +6,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    packages: [],
     paginationPages: 0,
     searchingValue: "",
-    responseData: {},
+    responseData: null,
+    lastSeenItem: null,
   },
 
   mutations: {
@@ -25,6 +25,9 @@ export default new Vuex.Store({
     SET_RESPONSE_DATA(state, data) {
       state.responseData = data;
     },
+    SET_LAST_SEEN(state, item) {
+      state.lastSeenItem = item;
+    },
   },
 
   actions: {
@@ -39,12 +42,13 @@ export default new Vuex.Store({
         commit("SET_SEARCHING_VALUE", options.value);
       });
     },
+
+    addLastSeen({ commit }, item) {
+      commit("SET_LAST_SEEN", item);
+    },
   },
 
   getters: {
-    packagesList: (state) => {
-      return state.responseData.hits;
-    },
     paginationPages: (state) => {
       return state.responseData.paginationPages;
     },
@@ -53,6 +57,9 @@ export default new Vuex.Store({
     },
     getData: (state) => {
       return state.responseData;
+    },
+    getLastSeen: (state) => {
+      return state.lastSeenItem;
     },
   },
 });

@@ -29,6 +29,7 @@ export default {
   },
   methods: {
     ...mapActions(["getPackages"]),
+
     findPackageHandler() {
       this.getPackages({ value: this.inputValue, page: 0, hitsPerPage: 10 });
     },
